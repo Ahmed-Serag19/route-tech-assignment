@@ -62,7 +62,7 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
 
       setFilteredCustomers(filtered);
     } else {
-      setFilteredCustomers([]); // Reset if data is not available
+      setFilteredCustomers([]);
     }
   }, [filter, customers, transactions]);
 
@@ -73,7 +73,7 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
   return (
     <div className="p-4 max-w-full">
       <h2 className="text-xl font-bold mb-2">Customer List</h2>
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start py-5">
         <input
           type="text"
           placeholder="Filter by name"
@@ -81,7 +81,7 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
           onChange={(e) =>
             setFilter({ ...filter, name: e.target.value })
           }
-          className="border p-2 mb-2 sm:mb-0 sm:mr-2 flex-grow"
+          className="border p-2 mb-2 sm:mb-0 sm:mr-2 flex-grow max-w-52"
         />
         <input
           type="number"
@@ -90,7 +90,7 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
           onChange={(e) =>
             setFilter({ ...filter, amount: e.target.value })
           }
-          className="border p-2 mb-2 sm:mb-0 flex-grow"
+          className="border p-2 mb-2 sm:mb-0 flex-grow max-w-52"
         />
       </div>
       <div className="overflow-x-auto">
