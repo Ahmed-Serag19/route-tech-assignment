@@ -105,7 +105,7 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
         className="border p-2 mb-2"
       />
       <table className="min-w-full bg-white border">
-        <thead>
+        <thead className="text-left">
           <tr>
             <th className="py-2 px-4 border">Name</th>
             <th className="py-2 px-4 border">Total Transactions</th>

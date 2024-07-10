@@ -50,7 +50,7 @@ const CustomerDetail: React.FC<CustomerDetailProps> = ({
         Back to Customer List
       </Link>
       <table className="min-w-full bg-white border mb-4">
-        <thead>
+        <thead className="text-left">
           <tr>
             <th className="py-2 px-4 border">Date</th>
             <th className="py-2 px-4 border">Transaction Amount</th>
