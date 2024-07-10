@@ -14,9 +14,6 @@ const CustomerDetail: React.FC<CustomerDetailProps> = ({
 }) => {
   const { id } = useParams<{ id: string }>();
 
-  console.log('useParams id:', id);
-  console.log('Customers array:', customers);
-
   if (!id) {
     return <div>Customer ID is missing</div>;
   }
@@ -26,8 +23,6 @@ const CustomerDetail: React.FC<CustomerDetailProps> = ({
   }
 
   const customer = customers.find((c) => c.id === id); // Compare as string
-
-  console.log('Customer found:', customer);
 
   const customerTransactions = transactions.filter(
     (t) => t.customer_id === Number(id)

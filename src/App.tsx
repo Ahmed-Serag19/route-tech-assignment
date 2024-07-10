@@ -11,11 +11,9 @@ const App: React.FC = () => {
 
   useEffect(() => {
     getCustomers().then((response) => {
-      console.log('Customers:', response.data);
       setCustomers(response.data);
     });
     getTransactions().then((response) => {
-      console.log('Transactions:', response.data);
       setTransactions(response.data);
     });
   }, []);

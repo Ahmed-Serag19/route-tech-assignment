@@ -23,9 +23,6 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
   >([]);
 
   useEffect(() => {
-    console.log('Transactions:', transactions);
-    console.log('Customers:', customers);
-
     if (
       customers &&
       transactions &&
@@ -41,18 +38,9 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
             (t) => t.customer_id === Number(customer.id)
           );
 
-          console.log(
-            `Customer: ${customer.name}, Transactions:`,
-            customerTransactions
-          );
-
           const totalAmount = customerTransactions.reduce(
             (acc, t) => acc + t.amount,
             0
-          );
-
-          console.log(
-            `Customer: ${customer.name}, Total Amount: ${totalAmount}`
           );
 
           return {
@@ -72,7 +60,6 @@ const CustomerTable: React.FC<CustomerTableProps> = ({
               customer.totalAmount.toString().includes(amountFilter))
         );
 
-      console.log('Filtered Customers:', filtered);
       setFilteredCustomers(filtered);
     } else {
       setFilteredCustomers([]); // Reset if data is not available
