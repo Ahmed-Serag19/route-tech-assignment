@@ -1,7 +1,7 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import TransactionGraph from '../components/TransactionGraph';
-import { Customer, Transaction } from '../services/types';
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import TransactionGraph from "../components/TransactionGraph";
+import { Customer, Transaction } from "../services/types";
 
 interface CustomerDetailProps {
   customers: Customer[];
@@ -22,7 +22,7 @@ const CustomerDetail: React.FC<CustomerDetailProps> = ({
     return <div>Loading...</div>; // Wait for customers data to be loaded
   }
 
-  const customer = customers.find((c) => c.id === id); // Compare as string
+  const customer = customers.find((c) => c.id === Number(id)); // Convert id to number before comparison//+
 
   const customerTransactions = transactions.filter(
     (t) => t.customer_id === Number(id)
@@ -35,7 +35,7 @@ const CustomerDetail: React.FC<CustomerDetailProps> = ({
   return (
     <div>
       <h2 className=" font-bold mb-2  text-2xl">
-        Customer Detail:{' '}
+        Customer Detail:{" "}
         <span className="text-3xl text-red-500">{customer.name}</span>
       </h2>
       <Link
@@ -55,9 +55,7 @@ const CustomerDetail: React.FC<CustomerDetailProps> = ({
           {customerTransactions.map((transaction) => (
             <tr key={transaction.id}>
               <td className="py-2 px-4 border">{transaction.date}</td>
-              <td className="py-2 px-4 border">
-                {transaction.amount}
-              </td>
+              <td className="py-2 px-4 border">{transaction.amount}</td>
             </tr>
           ))}
         </tbody>

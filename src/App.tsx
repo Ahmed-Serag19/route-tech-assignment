@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 // import { getCustomers, getTransactions } from './services/api';
-import CustomerTable from './components/CustomerTable';
-import CustomerDetail from './routes/CustomerDetail';
-import { Customer, Transaction } from './services/types';
-
-const App: React.FC = () => {
-  const [customers, setCustomers] = useState<Customer[]>([
+import CustomerTable from "./components/CustomerTable";
+import CustomerDetail from "./routes/CustomerDetail";
+import { Customer, Transaction } from "./services/types";
+const dummyCustomerData = [
   { id: 1, name: "Ahmed Ali" },
   { id: 2, name: "Aya Elsayed" },
   { id: 3, name: "Mina Adel" },
@@ -16,9 +14,9 @@ const App: React.FC = () => {
   { id: 7, name: "Laila Ahmed" },
   { id: 8, name: "Omar Zaki" },
   { id: 9, name: "Nora Sami" },
-  { id: 10, name: "Tarek Youssef" }
-]);
-  const [transactions, setTransactions] = useState<Transaction[]>([
+  { id: 10, name: "Tarek Youssef" },
+];
+const dummyTransactionsData = [
   { id: 1, customer_id: 1, date: "2022-01-01", amount: 1000 },
   { id: 2, customer_id: 1, date: "2022-01-02", amount: 2000 },
   { id: 3, customer_id: 2, date: "2022-01-01", amount: 550 },
@@ -67,8 +65,13 @@ const App: React.FC = () => {
   { id: 46, customer_id: 10, date: "2022-01-02", amount: 1250 },
   { id: 47, customer_id: 10, date: "2022-01-03", amount: 1450 },
   { id: 48, customer_id: 10, date: "2022-01-04", amount: 1650 },
-  { id: 49, customer_id: 10, date: "2022-01-05", amount: 1850 }
-]);
+  { id: 49, customer_id: 10, date: "2022-01-05", amount: 1850 },
+];
+const App: React.FC = () => {
+  const [customers, setCustomers] = useState<Customer[]>(dummyCustomerData);
+  const [transactions, setTransactions] = useState<Transaction[]>(
+    dummyTransactionsData
+  );
 
   // useEffect(() => {
   //   getCustomers().then((response) => {
@@ -82,9 +85,7 @@ const App: React.FC = () => {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">
-          Customer Transactions
-        </h1>
+        <h1 className="text-2xl font-bold mb-4">Customer Transactions</h1>
         <Routes>
           <Route
             path="/"

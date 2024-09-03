@@ -1,6 +1,6 @@
 // types.ts
 export interface Customer {
-  id: string; // Use string to match the data
+  id: number; // Use string to match the data
   name: string;
 }
 
