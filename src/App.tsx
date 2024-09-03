@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 // import { getCustomers, getTransactions } from './services/api';
 import CustomerTable from "./components/CustomerTable";
 import CustomerDetail from "./routes/CustomerDetail";
-import { Customer, Transaction } from "./services/types";
+// import { Customer, Transaction } from "./services/types";
 const dummyCustomerData = [
   { id: 1, name: "Ahmed Ali" },
   { id: 2, name: "Aya Elsayed" },
@@ -68,10 +68,10 @@ const dummyTransactionsData = [
   { id: 49, customer_id: 10, date: "2022-01-05", amount: 1850 },
 ];
 const App: React.FC = () => {
-  const [customers, setCustomers] = useState<Customer[]>(dummyCustomerData);
-  const [transactions, setTransactions] = useState<Transaction[]>(
-    dummyTransactionsData
-  );
+  // const [customers, setCustomers] = useState<Customer[]>(dummyCustomerData);
+  // const [transactions, setTransactions] = useState<Transaction[]>(
+  //   dummyTransactionsData
+  // );
 
   // useEffect(() => {
   //   getCustomers().then((response) => {
@@ -91,8 +91,8 @@ const App: React.FC = () => {
             path="/"
             element={
               <CustomerTable
-                customers={customers}
-                transactions={transactions}
+                customers={dummyCustomerData}
+                transactions={dummyTransactionsData}
               />
             }
           />
@@ -100,8 +100,8 @@ const App: React.FC = () => {
             path="/customer/:id"
             element={
               <CustomerDetail
-                customers={customers}
-                transactions={transactions}
+                customers={dummyCustomerData}
+                transactions={dummyTransactionsData}
               />
             }
           />
