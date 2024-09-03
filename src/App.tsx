@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { getCustomers, getTransactions } from './services/api';
+// import { getCustomers, getTransactions } from './services/api';
 import CustomerTable from './components/CustomerTable';
 import CustomerDetail from './routes/CustomerDetail';
 import { Customer, Transaction } from './services/types';
@@ -20,14 +20,14 @@ const App: React.FC = () => {
 ]);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  useEffect(() => {
-    getCustomers().then((response) => {
-      setCustomers(response.data);
-    });
-    getTransactions().then((response) => {
-      setTransactions(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getCustomers().then((response) => {
+  //     setCustomers(response.data);
+  //   });
+  //   getTransactions().then((response) => {
+  //     setTransactions(response.data);
+  //   });
+  // }, []);
 
   return (
     <>
